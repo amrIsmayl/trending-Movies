@@ -8,6 +8,8 @@ import Pepole from './Pepole';
 import Movies from './Movies';
 import Tv from './Tv';
 import NotFound from './NotFound';
+import Register from './Register';
+import Login from './Login';
 
 
 import { Route, Routes } from 'react-router-dom';
@@ -20,16 +22,21 @@ function App() {
 
       <Navbar />
 
-      <Routes>
+      <div className="container-fluid">
+        <Routes>
 
-        <Route path="" element={<Home/>} />
-        <Route path="home" element={<Home/>} />
-        <Route path="movies" element={<Movies/>} />
-        <Route path="pepole" element={<Pepole/>} />
-        <Route path="tv" element={<Tv/>} />
-        <Route path="*" element={<NotFound/>} />
+          <Route path="" element={<Home />} />
+          <Route path="home" element={<Home />} />
+          <Route path="movies" element={<Movies />} />
+          <Route path="pepole" element={<Pepole />} />
+          <Route path="tv" element={<Tv />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
 
-      </Routes>
+        </Routes>
+
+      </div>
 
       <Footer />
 
