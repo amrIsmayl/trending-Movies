@@ -1,7 +1,12 @@
+import axios from 'axios';
+import Joi from 'joi';
 import React, { useState } from 'react'
 
 export default function Register() {
 
+  const [errorList, setErrorList] = useState([]);
+  const [isloading, setIsloading] = useState(false);
+  const [error, setError] = useState("");
   const [user, setUser] = useState({
     first_name: '',
     last_name: '',
@@ -17,9 +22,38 @@ export default function Register() {
     console.log(myUser)
   }
 
-  function submitRegisterForm(e) {
+  async function submitRegisterForm(e) {
     e.preventDefault();
-    console.log(user)
+    setIsloading(true);
+    let validationResult = validateRegisterForm();
+
+    if (validationResult.error) {
+      setErrorList(validationResult.error.details);
+      setIsloading(false);
+    }
+    else {
+      let { data } = await axios.post('https://route-egypt-api.herokuapp.com/signup', user);
+
+      if (data.message === 'success') {
+        setIsloading(false);
+      }
+      else {
+        setError(data.message);
+        setIsloading(false);
+      }
+    }
+  }
+
+  function validateRegisterForm() {
+    let scheme = Joi.object({
+      first_name: Joi.string().alphanum().min(3).max(10).required(),
+      last_name: Joi.string().alphanum().min(3).max(10).required(),
+      age: Joi.number().min(16).max(80).required(),
+      email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
+      password: Joi.string().pattern(new RegExp('^[A-Z][a-z]{3,8}$')).required(),
+    })
+
+    return scheme.validate(user, { abortEarly: false });
   }
 
 
@@ -28,7 +62,13 @@ export default function Register() {
       <div className=' w-75 mx-auto'>
         <h2>Register Now</h2>
 
+        {/* {errorList.map((error)=><div className=' alert py-2 alert-danger'>{error.massege}</div>)} */}
+        {errorList.map((error)=><div className=' alert py-2 alert-danger'>{error.message}</div>)}
+        {error ? <div className=' alert alert-danger'>{error}</div> : ''}
+
         <form onSubmit={submitRegisterForm}>
+
+
           <label htmlFor="first_name">first-name :</label>
           <input onChange={getUserData} className=' form-control mb-2' id='first_name' name='first_name' />
 
@@ -44,7 +84,9 @@ export default function Register() {
           <label htmlFor="password">password :</label>
           <input onChange={getUserData} type='password' className=' form-control mb-2' id='password' name='password' />
 
-          <button type='supmit' className=' btn btn-outline-info'>Rigester</button>
+          <button type='supmit' className=' btn btn-outline-info'>
+            {isloading ? <i className=' fas fa-spinner fa-spin'></i>: "Register"}
+          </button>
 
         </form>
 
