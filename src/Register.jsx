@@ -1,12 +1,14 @@
 import axios from 'axios';
 import Joi from 'joi';
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
 
   const [errorList, setErrorList] = useState([]);
   const [isloading, setIsloading] = useState(false);
   const [error, setError] = useState("");
+  let navigate = useNavigate();
   const [user, setUser] = useState({
     first_name: '',
     last_name: '',
@@ -36,6 +38,7 @@ export default function Register() {
 
       if (data.message === 'success') {
         setIsloading(false);
+        navigate('/login')
       }
       else {
         setError(data.message);
@@ -62,8 +65,7 @@ export default function Register() {
       <div className=' w-75 mx-auto'>
         <h2>Register Now</h2>
 
-        {/* {errorList.map((error)=><div className=' alert py-2 alert-danger'>{error.massege}</div>)} */}
-        {errorList.map((error)=><div className=' alert py-2 alert-danger'>{error.message}</div>)}
+        {errorList.map((error , i)=> i === 4 ? <div className=' alert py-2 alert-danger'>password invalid</div>: <div className=' alert py-2 alert-danger'>{error.message}</div>)}
         {error ? <div className=' alert alert-danger'>{error}</div> : ''}
 
         <form onSubmit={submitRegisterForm}>
