@@ -13,6 +13,11 @@ body {
   color: var(--main-color);
 }
 
+a , a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
 .borderr {
   height: 1px;
   background-color: var(--border-color);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 export default function Home() {
@@ -38,9 +39,10 @@ export default function Home() {
 
         {trendingMovies.map((movie, i) => <div key={i} className="col-md-2">
           <div className="movie">
-            <img src={'https://image.tmdb.org/t/p/original/' + movie.poster_path} alt="" className="w-100" />
-
-            <h3 className=' h6 my-2'>{movie.title}</h3>
+            <Link to={`/moviedetails/${movie.id}`}>
+              <img src={'https://image.tmdb.org/t/p/original/' + movie.poster_path} alt="" className="w-100" />
+              <h3 className=' h6 my-2'>{movie.title}</h3>
+            </Link>
           </div>
         </div>)}
       </div>
