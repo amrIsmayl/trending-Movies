@@ -25,7 +25,7 @@ function App() {
     let encodedToken = localStorage.getItem('userToken');
     let decodedToken = jwtDecode(encodedToken);
     setUserData(decodedToken);
-    console.log(decodedToken)
+    // console.log(decodedToken)
   }
 
   function logOut(){
@@ -42,7 +42,7 @@ function App() {
   
 
   function ProtectedRoute(props) {
-    console.log(props.children);
+    // console.log(props.children);
     if (localStorage.getItem('userToken') === null) 
     {
       return <Navigate to='/Login' />
@@ -59,7 +59,7 @@ function App() {
 
       <Navbar logOut={logOut} userData={userData} />
 
-      <div className="container-fluid">
+      <div className="container">
         <Routes>
 
           <Route path="" element={<ProtectedRoute><Home /></ProtectedRoute>} />

@@ -18,7 +18,7 @@ export default function Login(props) {
     let myUser = { ...user }; // copy user
     myUser[e.target.name] = e.target.value;
     setUser(myUser);
-    console.log(myUser)
+    // console.log(myUser)
   }
 
   async function submitLoginForm(e) {
