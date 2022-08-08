@@ -27,3 +27,7 @@ input {
   background-color: transparent !important;
   color: #fff !important;
 }
+
+.pointer{
+  cursor: pointer;
+}

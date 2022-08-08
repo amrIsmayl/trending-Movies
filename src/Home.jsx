@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="row">
+      <div className="row py-5">
         <div className="col-md-4 d-flex align-items-center">
           <div>
             <div className="borderr w-25 mb-4"></div>
@@ -37,11 +37,11 @@ export default function Home() {
           </div>
         </div>
 
-        {trendingMovies.map((movie, i) => <div key={i} className="col-md-2">
+        {trendingMovies.map((movie, i) => <div key={i} className="col-md-2 py-3">
           <div className="movie">
             <Link to={`/moviedetails/${movie.id}`}>
               <img src={'https://image.tmdb.org/t/p/original/' + movie.poster_path} alt="" className="w-100" />
-              <h3 className=' h6 my-2'>{movie.title}</h3>
+              <h3 className=' h6 my-4 text-center'>{movie.title}</h3>
             </Link>
           </div>
         </div>)}
@@ -58,11 +58,11 @@ export default function Home() {
           </div>
         </div>
 
-        {trendingtv.map((tv, i) => <div key={i} className="col-md-2">
+        {trendingtv.map((tv, i) => <div key={i} className="col-md-2 py-3">
           <div className="tv">
             <img src={'https://image.tmdb.org/t/p/original/' + tv.poster_path} alt="" className="w-100" />
 
-            <h3 className=' h6 my-2'>{tv.name}</h3>
+            <h3 className=' h6 my-4 text-center'>{tv.name}</h3>
           </div>
         </div>)}
       </div>
@@ -78,10 +78,10 @@ export default function Home() {
           </div>
         </div>
 
-        {trendingpeopole.map((person , i) => <div key={i} className="col-md-2">
+        {trendingpeopole.map((person , i) => <div key={i} className="col-md-2 py-3">
           <div className="actor">
             {person.profile_path === null ? <img src={require("./111.png")} className=" w-100 pt-5"/> : <img src={'https://image.tmdb.org/t/p/original/' + person.profile_path} alt="" className="w-100" />}
-            <h3 className=' h6 my-2'>{person.name}</h3>
+            <h3 className=' h6 my-4 text-center'>{person.name}</h3>
           </div>
         </div>)}
       </div>

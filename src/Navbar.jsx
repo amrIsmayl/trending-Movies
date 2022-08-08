@@ -6,7 +6,7 @@ export default function Navbar(props) {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="home">Navbar</Link>
+          <Link className="navbar-brand ps-5" to="home">Navbar</Link>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -33,16 +33,15 @@ export default function Navbar(props) {
             </ul>
             <ul className="navbar-nav mb-2 mb-lg-0">
 
-              <li className="nav-item d-flex align-items-center">
-                <i className=' fab mx-2 fa-facebook'></i>
-                <i className=' fab mx-2 fa-twitter'></i>
-                <i className=' fab mx-2 fa-instagram'></i>
-                <i className=' fab mx-2 fa-spotify'></i>
-                <i className=' fab mx-2 fa-soundcloud'></i>
+              <li className="nav-item d-flex align-items-center pe-5">
+                <a href="https://www.facebook.com/" target="_blank"><i className=' fab mx-2 fa-facebook'></i></a>
+                <a href="https://www.twitter.com/" target="_blank"><i className=' fab mx-2 fa-twitter'></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i className=' fab mx-2 fa-instagram'></i></a>
+                <a href="https://open.spotify.com/" target="_blank"><i className=' fab mx-2 fa-spotify'></i></a> 
               </li>
 
               {props.userData?<li className="nav-item">
-                <span onClick={props.logOut} className="nav-link">Logout</span>
+                <span onClick={props.logOut} className="nav-link pe-5">Logout</span>
               </li> : <>
 
               <li className="nav-item">

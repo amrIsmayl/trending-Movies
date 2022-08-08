@@ -25,11 +25,11 @@ export default function MovieDetails() {
 
   return (
     <>
-      {movieDetails ? <div className=' row'>
+      {movieDetails ? <div className=' row py-5'>
         <div className="col-md-3">
           <img className=' w-100' src={"https://image.tmdb.org/t/p/original/" + movieDetails.poster_path} alt="" />
         </div>
-        <div className="col-md-9 py-5 ps-5">
+        <div className="col-md-9 py-4 ps-5">
           <h2 className=' pt-5'>{movieDetails.title}</h2>
           <p>{movieDetails.overview}</p>
           <ul>

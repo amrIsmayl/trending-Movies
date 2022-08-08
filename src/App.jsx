@@ -11,6 +11,8 @@ import NotFound from './NotFound';
 import Register from './Register';
 import Login from './Login';
 import MovieDetails from './MovieDetails'
+import TvDetails from './TvDetails';
+import PepoleDetails from './PepoleDetails';
 
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
@@ -65,10 +67,16 @@ function App() {
           <Route path="home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
           <Route path="movies" element={<ProtectedRoute><Movies /></ProtectedRoute>} />
           <Route path="pepole" element={<ProtectedRoute><Pepole /></ProtectedRoute>} />
+          <Route path="tv" element={<ProtectedRoute><Tv /></ProtectedRoute>} />
           <Route path="moviedetails" element={<ProtectedRoute><MovieDetails /></ProtectedRoute>} >
             <Route path=":id" element={<ProtectedRoute><MovieDetails /></ProtectedRoute>} />
           </Route>
-          <Route path="tv" element={<ProtectedRoute><Tv /></ProtectedRoute>} />
+          <Route path="tvdetails" element={<ProtectedRoute><TvDetails /></ProtectedRoute>} >
+            <Route path=":id" element={<ProtectedRoute><TvDetails /></ProtectedRoute>} />
+          </Route>
+          <Route path="pepoledetails" element={<ProtectedRoute><PepoleDetails /></ProtectedRoute>} >
+            <Route path=":id" element={<ProtectedRoute><PepoleDetails /></ProtectedRoute>} />
+          </Route>
           <Route path="login" element={<Login saveUserData={saveUserData} />} />
           <Route path="register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
