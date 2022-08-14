@@ -20,7 +20,6 @@ export default function MovieDetails() {
 
 
   let parameterMovie = useParams();
-  // parameterMovie.id
 
 
   return (

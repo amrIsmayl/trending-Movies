@@ -21,7 +21,6 @@ export default function Register() {
     let myUser = { ...user }; // copy user
     myUser[e.target.name] = e.target.value;
     setUser(myUser);
-    // console.log(myUser)
   }
 
   async function submitRegisterForm(e) {
