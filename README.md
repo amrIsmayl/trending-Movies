@@ -2,6 +2,30 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## home page :
+
+All site activities are displayed in a simplified and concise manner, giving the ability to open any details of the information presented on the site
+
+![This is an image](img/Capture.PNG)
+
+## sections :
+
+Here each section is displayed in more detail so that it contains more information with the ability to display more accurate details of each information
+
+![This is an image](img/Capture3.PNG)
+
+### details of each information
+
+![This is an image](img/Capture1.PNG)
+
+
+## Investigations :
+
+The registration processes on the site and the process of entering and exiting the site have been created with validate
+
+![This is an image](img/Capture4.PNG)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
