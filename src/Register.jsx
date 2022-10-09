@@ -61,8 +61,8 @@ export default function Register() {
 
   return (
     <>
-      <div className=' w-75 mx-auto'>
-        <h2>Register Now</h2>
+      <div className=' w-75 mx-auto pt-5'>
+        <h2 className=' mb-4'>Register Now</h2>
 
         {errorList.map((error , i)=> i === 4 ? <div className=' alert py-2 alert-danger'>password invalid</div>: <div className=' alert py-2 alert-danger'>{error.message}</div>)}
         {error ? <div className=' alert alert-danger'>{error}</div> : ''}
@@ -70,22 +70,22 @@ export default function Register() {
         <form onSubmit={submitRegisterForm}>
 
 
-          <label htmlFor="first_name">first-name :</label>
+          <label htmlFor="first_name" className=' my-2'>first-name :</label>
           <input onChange={getUserData} className=' form-control mb-2' id='first_name' name='first_name' />
 
-          <label htmlFor="last_name">last-name :</label>
+          <label htmlFor="last_name" className=' my-2'>last-name :</label>
           <input onChange={getUserData} className=' form-control mb-2' id='last_name' name='last_name' />
 
-          <label htmlFor="age">age :</label>
+          <label htmlFor="age" className=' my-2'>age :</label>
           <input onChange={getUserData} type='number' className=' form-control mb-2' id='age' name='age' />
 
-          <label htmlFor="email">email :</label>
+          <label htmlFor="email" className=' my-2'>email :</label>
           <input onChange={getUserData} type='email' className=' form-control mb-2' id='email' name='email' />
 
-          <label htmlFor="password">password :</label>
+          <label htmlFor="password" className=' my-2'>password :</label>
           <input onChange={getUserData} type='password' className=' form-control mb-2' id='password' name='password' />
 
-          <button type='supmit' className=' btn btn-outline-info'>
+          <button type='supmit' className=' btn btn-outline-info mt-4'>
             {isloading ? <i className=' fas fa-spinner fa-spin'></i>: "Register"}
           </button>
 

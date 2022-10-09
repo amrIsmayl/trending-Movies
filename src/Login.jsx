@@ -57,26 +57,28 @@ export default function Login(props) {
 
   return (
     <>
-      <div className=' w-75 mx-auto'>
-        <h2>Login Now</h2>
-
-        {errorList.map((error , i)=> i === 1? <div className=' alert py-2 alert-danger'>password invalid</div>: <div className=' alert py-2 alert-danger'>{error.message}</div>)}
-        {error ? <div className=' alert alert-danger'>{error}</div> : ''}
-
-        <form onSubmit={submitLoginForm}>
-
-          <label htmlFor="email">email :</label>
-          <input onChange={getUserData} type='email' className=' form-control mb-2' id='email' name='email' />
-
-          <label htmlFor="password">password :</label>
-          <input onChange={getUserData} type='password' className=' form-control mb-2' id='password' name='password' />
-
-          <button type='supmit' className=' btn btn-outline-info'>
-            {isloading ? <i className=' fas fa-spinner fa-spin'></i>: "Login"}
-          </button>
-
-        </form>
-
+      <div className=' py-5'>
+        <div className=' w-75 mx-auto my-5 pt-5'>
+          <h2 className=' mb-4'>Login Now</h2>
+        
+          {errorList.map((error , i)=> i === 1? <div className=' alert py-2 alert-danger'>password invalid</div>: <div className=' alert py-2 alert-danger'>{error.message}</div>)}
+          {error ? <div className=' alert alert-danger'>{error}</div> : ''}
+        
+          <form onSubmit={submitLoginForm}>
+        
+            <label htmlFor="email" className=' my-2'>email :</label>
+            <input onChange={getUserData} type='email' className=' form-control mb-2' id='email' name='email' />
+        
+            <label htmlFor="password" className=' my-2'>password :</label>
+            <input onChange={getUserData} type='password' className=' form-control mb-2' id='password' name='password' />
+        
+            <button type='supmit' className=' btn btn-outline-info mt-4'>
+              {isloading ? <i className=' fas fa-spinner fa-spin'></i>: "Login"}
+            </button>
+        
+          </form>
+        
+        </div>
       </div>
     </>
   )

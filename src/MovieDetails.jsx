@@ -44,9 +44,7 @@ export default function MovieDetails() {
       </div> : <div className=' vh-100 d-flex justify-content-center align-items-center'>
         <i className=' fas fa-spinner fa-spin fa-3x'></i>
       </div>}
-
-
-
+      
     </>
   )
 }

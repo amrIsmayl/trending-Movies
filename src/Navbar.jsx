@@ -5,7 +5,7 @@ export default function Navbar(props) {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
-        <div className="container-fluid">
+        <div className="container-fluid pt-4">
           <Link className="navbar-brand ps-5" to="home">Navbar</Link>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -41,7 +41,7 @@ export default function Navbar(props) {
               </li>
 
               {props.userData?<li className="nav-item">
-                <span onClick={props.logOut} className="nav-link pe-5">Logout</span>
+                <span onClick={props.logOut} className="nav-link pe-5 pointer">Logout</span>
               </li> : <>
 
               <li className="nav-item">
