@@ -39,7 +39,7 @@ export default function Movies() {
         <ul className="pagination pagination-sm d-flex justify-content-center">
 
           {
-            nums.map((pageNum) => <li onClick={() => getTrending(pageNum)} key={pageNum} className="page-item"><a className=" pointer page-link bg-transparent text-white" >{pageNum}</a></li>
+            nums.map((pageNum) => <li onClick={() => getTrending(pageNum)} key={pageNum} className="page-item"><a className=" pointer page-link PaginationTo" >{pageNum}</a></li>
             )
           }
 

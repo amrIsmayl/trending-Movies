@@ -31,3 +31,8 @@ input {
 .pointer{
   cursor: pointer;
 }
+
+.PaginationTo {
+  background-color: transparent;
+  color: white;
+}

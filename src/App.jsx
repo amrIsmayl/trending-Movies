@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 import Navbar from './Navbar';
@@ -15,7 +14,7 @@ import TvDetails from './TvDetails';
 import PepoleDetails from './PepoleDetails';
 
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
-import jwtDecode from 'jwt-decode';
+import jwtDecode from 'jwt-decode'; // jwtDecode : to Transformation token to object Contain all data to user 
 import React, { useEffect, useState } from 'react'
 
 
@@ -25,10 +24,9 @@ function App() {
   let navigate = useNavigate;
 
   function saveUserData() {
-    let encodedToken = localStorage.getItem('userToken');
-    let decodedToken = jwtDecode(encodedToken);
-    setUserData(decodedToken);
-    // console.log(decodedToken)
+    let encodedToken = localStorage.getItem('userToken'); // get token to transformation token becaose get user data
+    let decodedToken = jwtDecode(encodedToken); // to transformation token becaose get user data
+    setUserData(decodedToken); // set user data in object becaose using 
   }
 
   function logOut() {
@@ -43,9 +41,7 @@ function App() {
     }
   }, [])
 
-
   function ProtectedRoute(props) {
-    // console.log(props.children);
     if (localStorage.getItem('userToken') === null) {
       return <Navigate to='/Login' />
     }
@@ -54,11 +50,9 @@ function App() {
     }
   };
 
-
   return (
     <>
-
-      <Navbar logOut={logOut} userData={userData} />
+      <Navbar logOut={logOut} userData={userData} /> {/* userData={userData} : to send user data as props to navbar component */}
 
       <div className="container">
         <Routes>
@@ -77,7 +71,8 @@ function App() {
           <Route path="pepoledetails" element={<ProtectedRoute><PepoleDetails /></ProtectedRoute>} >
             <Route path=":id" element={<ProtectedRoute><PepoleDetails /></ProtectedRoute>} />
           </Route>
-          <Route path="login" element={<Login saveUserData={saveUserData} />} />
+          <Route path="login" element={<Login saveUserData={saveUserData} />} /> 
+          {/* saveUserData={saveUserData} : to send function "saveUserData()" as props to login component */}
           <Route path="register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
 

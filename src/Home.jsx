@@ -12,14 +12,12 @@ export default function Home() {
   async function getTrending(mediaType, callback) {
     let { data } = await axios.get(`https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=fedb2e6d7633d3698e236eecc75da7ca`);
     callback(data.results.slice(0, 10));
-
   }
 
   useEffect(() => {
     getTrending('movie', setTrendingMovies);
     getTrending('tv', setTrendingTv);
     getTrending('person', setTrendingPeopole);
-
   }, [])
 
   console.log(trendingpeopole);
